@@ -2,7 +2,7 @@
 
 ## Установка
 
-1. git clone
+1. git clone https://github.com/1vank1n/bem-landing.git
 2. npm i
 3. npm start
 

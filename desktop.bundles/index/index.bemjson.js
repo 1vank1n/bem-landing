@@ -11,7 +11,6 @@
         { elem : 'css', url : '_index.css' }
     ],
     scripts: [
-        { elem : 'js', url : 'js/jquery-1.8.3.min.js' },
         { elem : 'js', url : '_index.js' }
     ],
     mods : { theme : 'bem' },

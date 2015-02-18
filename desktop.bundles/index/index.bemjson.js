@@ -7,7 +7,7 @@
         { elem : 'meta', attrs : { name : 'viewport', content : 'width=device-width, initial-scale=1' } },
         { elem : 'meta', attrs : { name : 'description', content : 'Landing description...' } },
         { elem : 'css', url : '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' },
-        { elem : 'css', url : '//fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' },
+        { elem : 'css', url : '//fonts.googleapis.com/css?family=Roboto:400,300,700&subset=latin,cyrillic' },
         { elem : 'css', url : '_index.css' }
     ],
     scripts: [

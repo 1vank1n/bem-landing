@@ -1,5 +1,7 @@
 # Проба пера – лэндинг на БЭМ
 
+Результат можно посмотреть [здесь](https://1vank1n.github.io/bem-landing/)
+
 ## Установка
 
 1. git clone https://github.com/1vank1n/bem-landing.git

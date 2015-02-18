@@ -9,6 +9,7 @@
     "libs"
   ],
   "dependencies": {
-    "bem-components": "2.0.0"
+    "bem-components": "2.0.0",
+    "bem-grid": "https://github.com/verybigman/bem-grid.git"
   }
 }

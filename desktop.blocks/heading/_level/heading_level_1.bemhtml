@@ -1,0 +1,3 @@
+block('heading').mod('level', '1')(
+    tag()('h1')
+)

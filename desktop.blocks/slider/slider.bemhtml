@@ -1,0 +1,23 @@
+block('slider')(
+    content()(function(){
+        var items = this.ctx.content;
+
+        return [
+            items,
+            {
+                elem : 'nav',
+                content : [
+                    {
+                        elem : 'circle',
+                        content : ''
+                    }
+                ].map(function(item){
+                    var arr = [],
+                        i = 0;
+                    while (i++ < items.length) arr.push(item);
+                    return arr;
+                })
+            }
+        ]
+    })
+);

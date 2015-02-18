@@ -10,7 +10,8 @@
     "node": ">=0.10"
   },
   "dependencies": {
-    "bem-environ": "~1.4.0"
+    "bem-environ": "~1.4.0",
+    "bower-npm-install": "^0.5.9"
   },
   "devDependencies": {
     "bem": "0.9.0",

@@ -1,0 +1,3 @@
+block('menubar')(
+    tag()('nav')
+)

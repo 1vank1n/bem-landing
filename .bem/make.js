@@ -44,6 +44,7 @@ MAKE.decl('BundleNode', {
                 'libs/bem-components/desktop.blocks',
                 'libs/bem-components/design/common.blocks',
                 'libs/bem-components/design/desktop.blocks',
+                'libs/bem-grid/common.blocks',
                 'common.blocks',
                 'desktop.blocks'
             ]

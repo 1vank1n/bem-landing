@@ -1,488 +1,554 @@
 ({
     block : 'page',
-    title : 'Title of the page',
+    title : 'BEM landing',
     favicon : '/favicon.ico',
     head : [
-        { elem : 'meta', attrs : { name : 'description', content : '' } },
+        { elem : 'meta', attrs : { charset : 'utf-8' } },
         { elem : 'meta', attrs : { name : 'viewport', content : 'width=device-width, initial-scale=1' } },
+        { elem : 'meta', attrs : { name : 'description', content : 'Landing description...' } },
+        { elem : 'css', url : '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' },
+        { elem : 'css', url : '//fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' },
         { elem : 'css', url : '_index.css' }
     ],
-    scripts: [{ elem : 'js', url : '_index.js' }],
-    mods : { theme : 'islands' },
+    scripts: [
+        { elem : 'js', url : 'js/jquery-1.8.3.min.js' },
+        { elem : 'js', url : '_index.js' }
+    ],
+    mods : { theme : 'bem' },
     content : [
         {
-            block : 'header',
-            content : [
-                'header content goes here'
-            ]
-        },
-        {
-            block : 'content',
+            block : 's-header',
             content : [
                 {
-                    tag : 'p',
-                    content : [
-                        'This is a demo page to show blocks from bem-components library. ',
-                        { tag : 'br' },
-                        'Feel free to replace it with your own content in desktop.bundles/index/index.bemjson.js.',
-                        { tag : 'br' },
-                        'For more info about BEM check out ',
-                        {
-                            block : 'link',
-                            url : 'http://bem.info/',
-                            content : 'bem.info'
-                        },
-                        '.'
-                    ]
-                },
-                { tag : 'h2', content : 'islands theme' },
-
-                {
-                    block : 'table',
-                    tag : 'table',
-                    attrs : { style : 'table-layout: fixed; width: 600px' },
+                    block : 'topbar',
                     content : [
                         {
-                            elem : 'row',
-                            tag : 'tr',
+                            block : 'container',
                             content : [
-                                { elem : 'title', tag : 'th', content : 'size s' },
-                                { elem : 'title', tag : 'th', content : 'size m' },
-                                { elem : 'title', tag : 'th', content : 'size l' },
-                                { elem : 'title', tag : 'th', content : 'size xl' }
+                                {
+                                    block : 'row',
+                                    content : [
+                                        {
+                                            elem : 'col',
+                                            mods : { mw : 4 },
+                                            content : [
+                                                {
+                                                    block : 'link',
+                                                    url : '/',
+                                                    content : [
+                                                        {
+                                                            block : 'image',
+                                                            mix : { block: 's-header', elem : 'logo' },
+                                                            url : '../../img/logo.svg',
+                                                            width : 100
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            elem : 'col',
+                                            mods : { mw : 8 },
+                                            content : [
+                                                {
+                                                    block : 'menubar',
+                                                    mix : { block: 's-header', elem: 'menubar' },
+                                                    content : [
+                                                        {
+                                                            block : 'link',
+                                                            mix : { block: 'menubar', elem: 'link' },
+                                                            url : '#about',
+                                                            content : 'БЭМ'
+                                                        },
+                                                        {
+                                                            block : 'link',
+                                                            mix: { block: 'menubar', elem: 'link' },
+                                                            url: '#team',
+                                                            content : 'Команда'
+                                                        },
+                                                        {
+                                                            block : 'link',
+                                                            mix: { block: 'menubar', elem: 'link' },
+                                                            url: '#contacts',
+                                                            content : 'Вливайся'
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                    block : 'container',
+                    content : [
                         {
-                            elem : 'row',
-                            tag : 'tr',
+                            block : 'row',
                             content : [
-                                { elem : 'cell', tag : 'td', size : 's' },
-                                { elem : 'cell', tag : 'td', size : 'm' },
-                                { elem : 'cell', tag : 'td', size : 'l' },
-                                { elem : 'cell', tag : 'td', size : 'xl' }
-                            ].map(function(cell) {
-                                cell.attrs = { style : 'width: 25%; vertical-align: top;' };
-                                cell.content = [
-                                    {
-                                        block : 'menu',
-                                        mods : { theme : 'islands', size : cell.size },
-                                        attrs : { style : 'border: 1px solid rgba(0, 0, 0, 0.1);' },
-                                        content : [
-                                            {
-                                                block : 'menu-item',
-                                                content : 'New'
-                                            },
-                                            {
-                                                block : 'menu-item',
-                                                mods : { disabled : true },
-                                                content : 'Open Recent'
-                                            },
-                                            {
-                                                elem : 'group',
-                                                title : 'Save',
-                                                content : [
-                                                    {
-                                                        block : 'menu-item',
-                                                        content : 'Save as...'
-                                                    },
-                                                    {
-                                                        block : 'menu-item',
-                                                        content : 'Export'
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                block : 'menu-item',
-                                                content : 'Close'
-                                            }
-                                        ]
-                                    },
-                                    { tag : 'br' },
-                                    {
-                                        block : 'menu',
-                                        mods : { mode : 'check', theme : 'islands', size : cell.size },
-                                        attrs : { style : 'border: 1px solid rgba(0, 0, 0, 0.1);' },
-                                        content : [
-                                            {
-                                                elem : 'group',
-                                                title : 'Automate',
-                                                content : [
-                                                    {
-                                                        block : 'menu-item',
-                                                        content : 'Batch'
-                                                    },
-                                                    {
-                                                        block : 'menu-item',
-                                                        content : 'Create Droplet'
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                elem : 'group',
-                                                content : [
-                                                    {
-                                                        block : 'menu-item',
-                                                        mods : { checked : true },
-                                                        content : [
-                                                            { block : 'icon', mods : { social : 'twitter' } },
-                                                            'Twitter'
-                                                        ]
-                                                    },
-                                                    {
-                                                        block : 'menu-item',
-                                                        content : [
-                                                            { block : 'icon', mods : { social : 'vk' } },
-                                                            'VK'
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ];
-                                return cell;
-                            })
-                        }
-                    ]
-                },
-
-                { tag : 'br' },
-
-                {
-                    block : 'line',
-                    mods : { size : 's' },
-                    content : [
-                        'size s (24px height) ',
-                        {
-                            block : 'input',
-                            mods : { theme : 'islands', size : 's', 'has-clear' : true },
-                            val : 'value',
-                            placeholder : 'placeholder'
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 's' },
-                            text : 'button'
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 's' },
-                            text : 'button',
-                            icon : { block : 'icon', mods : { action : 'download' } }
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 's' },
-                            icon : { block : 'spin', mods : { theme : 'islands', size : 'xs', visible : true } },
-                            text : 'Loading...'
-                        },
-                        ' ',
-                        {
-                            block : 'radio-group',
-                            mods : { theme : 'islands', size : 's', type : 'button' },
-                            name : 'radio-sizes-s',
-                            options : [
-                                { val : 1, text : 'first' },
-                                { val : 2, text : 'second', checked : true }
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 12 },
+                                    content : [
+                                        {
+                                            block : 'slider',
+                                            js : true,
+                                            content : [
+                                                {
+                                                    elem : 'slide',
+                                                    content : 'Блок'
+                                                },
+                                                {
+                                                    elem : 'slide',
+                                                    content : 'Элемент'
+                                                },
+                                                {
+                                                    elem : 'slide',
+                                                    content : 'Модификатор'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
                             ]
-                        },
-                        ' ',
-                        {
-                            block : 'checkbox',
-                            mods : { theme : 'islands', size : 's', type : 'button' },
-                            val : 1,
-                            text : 'check'
-                        },
-                        ' ',
-                        {
-                            block : 'dropdown',
-                            mods : { switcher : 'button', theme : 'islands', size : 's' },
-                            switcher : 'dropdown',
-                            popup : { block : 'popup', mods : { theme : 'islands' }, content : 'popup' }
-                        },
-                        ' ',
-                        {
-                            block : 'select',
-                            mods : { mode : 'radio-check', theme : 'islands', size : 's' },
-                            name : 'select',
-                            text : 'first',
-                            options : [
-                                { val : 1, text : 'first', checked: true },
-                                { val : 2, text : 'second' }
-                            ]
-                        },
-                        ' ',
-                        {
-                            block : 'spin',
-                            mods : { theme : 'islands', size : 's', visible : true }
-                        }
-                    ]
-                },
-
-                { tag : 'br' },
-
-                {
-                    block : 'line',
-                    mods : { size : 'm' },
-                    content : [
-                        'size m (28px height) ',
-                        {
-                            block : 'input',
-                            mods : { theme : 'islands', size : 'm', 'has-clear' : true },
-                            val : 'value',
-                            placeholder : 'placeholder'
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 'm' },
-                            text : 'button'
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 'm' },
-                            text : 'button',
-                            icon : { block : 'icon', mods : { action : 'download' } }
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 'm' },
-                            icon : { block : 'spin', mods : { theme : 'islands', size : 's', visible : true } },
-                            text : 'Loading...'
-                        },
-                        ' ',
-                        {
-                            block : 'radio-group',
-                            mods : { theme : 'islands', size : 'm', type : 'button' },
-                            name : 'radio-sizes-m',
-                            options : [
-                                { val : 1, text : 'first' },
-                                { val : 2, text : 'second', checked : true }
-                            ]
-                        },
-                        ' ',
-                        {
-                            block : 'radio',
-                            mods : { theme : 'islands', size : 'm', checked : true },
-                            val : 1,
-                            text : 'radio'
-                        },
-                        ' ',
-                        {
-                            block : 'checkbox',
-                            mods : { theme : 'islands', size : 'm', checked : true },
-                            val : 1,
-                            text : 'check'
-                        },
-                        ' ',
-                        {
-                            block : 'checkbox',
-                            mods : { theme : 'islands', size : 'm', type : 'button', checked : true },
-                            val : 1,
-                            text : 'check'
-                        },
-                        ' ',
-                        {
-                            block : 'dropdown',
-                            mods : { switcher : 'button', theme : 'islands', size : 'm' },
-                            switcher : 'dropdown',
-                            popup : { block : 'popup', mods : { theme : 'islands' }, content : 'popup' }
-                        },
-                        ' ',
-                        {
-                            block : 'select',
-                            mods : { mode : 'radio-check', theme : 'islands', size : 'm' },
-                            name : 'select',
-                            text : 'first',
-                            options : [
-                                { val : 1, text : 'first', checked: true },
-                                { val : 2, text : 'second' }
-                            ]
-                        },
-                        ' ',
-                        {
-                            block : 'spin',
-                            mods : { theme : 'islands', size : 'm', visible : true }
-                        }
-                    ]
-                },
-
-                { tag : 'br' },
-
-                {
-                    block : 'line',
-                    mods : { size : 'l' },
-                    content : [
-                        'size l (32px height) ',
-                        {
-                            block : 'input',
-                            mods : { theme : 'islands', size : 'l', 'has-clear' : true },
-                            val : 'value',
-                            placeholder : 'placeholder'
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 'l' },
-                            text : 'button'
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 'l' },
-                            text : 'button',
-                            icon : { block : 'icon', mods : { action : 'download' } }
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 'l' },
-                            icon : { block : 'spin', mods : { theme : 'islands', size : 'm', visible : true } },
-                            text : 'Loading...'
-                        },
-                        ' ',
-                        {
-                            block : 'radio-group',
-                            mods : { theme : 'islands', size : 'l', type : 'button' },
-                            name : 'radio-sizes-l',
-                            options : [
-                                { val : 1, text : 'first' },
-                                { val : 2, text : 'second', checked : true }
-                            ]
-                        },
-                        ' ',
-                        {
-                            block : 'radio',
-                            mods : { theme : 'islands', size : 'l', checked : true },
-                            val : 1,
-                            text : 'radio'
-                        },
-                        ' ',
-                        {
-                            block : 'checkbox',
-                            mods : { theme : 'islands', size : 'l', checked : true },
-                            val : 1,
-                            text : 'check'
-                        },
-                        ' ',
-                        {
-                            block : 'checkbox',
-                            mods : { theme : 'islands', size : 'l', type : 'button' },
-                            val : 1,
-                            text : 'check'
-                        },
-                        ' ',
-                        {
-                            block : 'dropdown',
-                            mods : { switcher : 'button', theme : 'islands', size : 'l' },
-                            switcher : 'dropdown',
-                            popup : { block : 'popup', mods : { theme : 'islands' }, content : 'popup' }
-                        },
-                        ' ',
-                        {
-                            block : 'select',
-                            mods : { mode : 'radio-check', theme : 'islands', size : 'l' },
-                            name : 'select',
-                            text : 'first',
-                            options : [
-                                { val : 1, text : 'first', checked: true },
-                                { val : 2, text : 'second' }
-                            ]
-                        },
-                        ' ',
-                        {
-                            block : 'spin',
-                            mods : { theme : 'islands', size : 'l', visible : true }
-                        }
-                    ]
-                },
-
-                { tag : 'br' },
-
-                {
-                    block : 'line',
-                    mods : { size : 'xl' },
-                    content : [
-                        'size xl (38px height) ',
-                        {
-                            block : 'input',
-                            mods : { theme : 'islands', size : 'xl', 'has-clear' : true },
-                            val : 'value',
-                            placeholder : 'placeholder'
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 'xl' },
-                            text : 'button'
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 'xl' },
-                            text : 'button',
-                            icon : { block : 'icon', mods : { action : 'download' } }
-                        },
-                        ' ',
-                        {
-                            block : 'button',
-                            mods : { theme : 'islands', size : 'xl' },
-                            icon : { block : 'spin', mods : { theme : 'islands', size : 'l', visible : true } },
-                            text : 'Loading...'
-                        },
-                        ' ',
-                        {
-                            block : 'radio-group',
-                            mods : { theme : 'islands', size : 'xl', type : 'button' },
-                            name : 'radio-sizes-xl',
-                            options : [
-                                { val : 1, text : 'first' },
-                                { val : 2, text : 'second', checked : true }
-                            ]
-                        },
-                        ' ',
-                        {
-                            block : 'checkbox',
-                            mods : { theme : 'islands', size : 'xl', type : 'button' },
-                            val : 1,
-                            text : 'check'
-                        },
-                        ' ',
-                        {
-                            block : 'dropdown',
-                            mods : { switcher : 'button', theme : 'islands', size : 'xl' },
-                            switcher : 'dropdown',
-                            popup : { block : 'popup', mods : { theme : 'islands' }, content : 'popup' }
-                        },
-                        ' ',
-                        {
-                            block : 'select',
-                            mods : { mode : 'radio-check', theme : 'islands', size : 'xl' },
-                            name : 'select',
-                            text : 'first',
-                            options : [
-                                { val : 1, text : 'first', checked: true },
-                                { val : 2, text : 'second' }
-                            ]
-                        },
-                        ' ',
-                        {
-                            block : 'spin',
-                            mods : { theme : 'islands', size : 'xl', visible : true }
                         }
                     ]
                 }
             ]
         },
         {
-            block : 'footer',
+            block : 's-counter',
             content : [
-                'footer content goes here'
+                {
+                    block : 'container',
+                    content : [
+                        {
+                            block : 'row',
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 4 },
+                                    content : [
+                                        {
+                                            block : 'counter',
+                                            js : { 'count': 256 },
+                                            heading : 'Проектов',
+                                            description : 'Количество проектов выполненных на полном БЭМ-стэке.'
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 4 },
+                                    content : [
+                                        {
+                                            block : 'counter',
+                                            js : { 'count': 1200 },
+                                            heading : 'Разработчиков',
+                                            description : 'Наше сообщество люто набирает обороты. Вливайся и ты! Stay BEMed!'
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 4 },
+                                    content : [
+                                        {
+                                            block : 'counter',
+                                            js : { 'count': 74 },
+                                            heading : 'БЭМ-библиотеки',
+                                            description : 'Уже сейчас заряжены и готовы к использованию БЭМ-библиотеки.'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            block : 's-about',
+            content : [
+                {
+                    block : 'container',
+                    content : [
+                        {
+                            block : 'row',
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 12 },
+                                    content : [
+                                        {
+                                            block : 'heading',
+                                            mods : { level : '2', align : 'center' },
+                                            content : 'BEM?! БЭМ? Что?! Эт классно! Изучи и заиспользуй!'
+                                        },
+                                        {
+                                            elem : 'description',
+                                            mix : { block : 's-about', elem : 'description' },
+                                            tag : 'p',
+                                            content : 'При использовании БЭМ-подхода все разработчики сайта оперируют единым кодом и общаются в одних и тех же терминах, на одном языке!'
+                                        },
+                                        {
+                                            block : 'image',
+                                            mix : { block : 's-about', elem : 'image' },
+                                            url : '../../img/bem.png',
+                                            height : 400
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            block : 's-slice',
+            content : [
+                {
+                    block : 'container',
+                    content : [
+                        {
+                            block : 'row',
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 4 },
+                                    content : [
+                                        {
+                                            block : 'fa',
+                                            icon : 'wrench',
+                                            size : '5x',
+                                            color : '#fff'
+                                        },
+                                        {
+                                            block : 'heading',
+                                            mods : { level : '2', align : 'center' },
+                                            content : 'Поддержка'
+                                        },
+                                        {
+                                            elem : 'description',
+                                            tag : 'p',
+                                            content : 'Технология придумана и разработана в Яндексе. Так что жить ей поживать и добра наживать! Поддержка и развитие обеспечено!'
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 4 },
+                                    content : [
+                                        {
+                                            block : 'fa',
+                                            icon : 'code-fork',
+                                            size : '5x',
+                                            color : '#fff'
+                                        },
+                                        {
+                                            block : 'heading',
+                                            mods : { level : '2', align : 'center' },
+                                            content : 'Своя библиотека'
+                                        },
+                                        {
+                                            elem : 'description',
+                                            tag : 'p',
+                                            content : 'Создай свой набор реиспользуемых блоков. И клепай сайты так быстро, как только можешь!'
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 4 },
+                                    content : [
+                                        {
+                                            block : 'fa',
+                                            icon : 'github',
+                                            size : '5x',
+                                            color : '#fff'
+                                        },
+                                        {
+                                            block : 'heading',
+                                            mods : { level : '2', align : 'center' },
+                                            content : 'OpenSource'
+                                        },
+                                        {
+                                            elem : 'description',
+                                            tag : 'p',
+                                            content : 'Всё написано людьми для людей. Никаких чёрных ящиков пандоры. Посмотри сам как это работает!'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            block : 's-team',
+            content : [
+                {
+                    block : 'container',
+                    content : [
+                        {
+                            block : 'row',
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 12 },
+                                    content : [
+                                        {
+                                            block : 'heading',
+                                            mods : { level : '2', align : 'center' },
+                                            content : 'Кто мы? Встречайте нашу команду!'
+                                        },
+                                        {
+                                            elem : 'description',
+                                            mix : { block : 's-team', elem : 'description' },
+                                            tag : 'p',
+                                            content : 'Есть вопросы, предложения, идеи – напишите нам.'
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            block : 'row',
+                            mix : { block : 's-team', elem: 'teamrow' },
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 4 },
+                                    content : [
+                                        {
+                                            block : 'teamate',
+                                            name : 'Виталий Харисов',
+                                            avatar : 'https://raw.github.com/bem/bem-method/bem-info-data/people/avatars/harisov-vitaly.png',
+                                            facebook : '',
+                                            twitter : 'https://twitter.com/harisov',
+                                            github : 'https://github.com/vithar',
+                                            content : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt rerum, inventore saepe laborum hic consequuntur, culpa debitis dolorem quam quod dignissimos possimus impedit dolorum vero vitae fugiat voluptatibus vel! Esse.'
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 4 },
+                                    content : [
+                                        {
+                                            block : 'teamate',
+                                            name : 'Сергей Бережной',
+                                            avatar : 'https://raw.github.com/bem/bem-method/bem-info-data/people/avatars/berezhnoy-sergey.jpg',
+                                            facebook : '',
+                                            twitter : 'https://twitter.com/veged',
+                                            github : 'https://github.com/veged',
+                                            content : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur, officia porro nobis non ipsa, perspiciatis accusamus amet aspernatur laboriosam expedita? Debitis asperiores, aliquam hic voluptatem non iure quaerat sunt.'
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 4 },
+                                    content : [
+                                        {
+                                            block : 'teamate',
+                                            name : 'Владимир Гриненко',
+                                            avatar : 'https://raw.github.com/bem/bem-method/bem-info-data/people/avatars/grinenko-vladimir.png',
+                                            facebook : '',
+                                            twitter : 'https://twitter.com/tadatuta',
+                                            github : 'https://github.com/tadatuta',
+                                            content : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit incidunt placeat, optio error tempore maiores reprehenderit soluta, dolores eaque, laborum reiciendis numquam mollitia. Dicta expedita quas autem, optio accusamus vitae.'
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            block : 'row',
+                            mix : { block : 's-team', elem : 'show-all' },
+                            mods : { mac : true },
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 3 },
+                                    content : [
+                                        {
+                                            block : 'button',
+                                            mods : { theme : 'islands', size : 'xl', type : 'link' },
+                                            url : 'https://ru.bem.info/authors',
+                                            text : 'Огласите весь список!'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            block : 's-slice',
+            mods : { subscribe : true },
+            content : [
+                {
+                    block : 'container',
+                    content : [
+                        {
+                            block : 'row',
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 12 },
+                                    content : [
+                                        {
+                                            block : 'heading',
+                                            mods : { level : '2', align : 'center' },
+                                            content : 'Подпишись на рассылку о БЭМ-событиях'
+                                        },
+                                        {
+                                            elem : 'description',
+                                            tag : 'p',
+                                            content : 'Обещаем не наживаться на продаже твоего емэйла всяческим спам-базам. Слово пионера!'
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            block : 'row',
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 12 },
+                                    content : [
+                                        {
+                                            block : 'control-group',
+                                            content : [
+                                                {
+                                                    block : 'input',
+                                                    mods : { theme : 'islands', size : 'm', type : 'search', 'has-clear' : true },
+                                                    placeholder : 'Введите email'
+                                                },
+                                                {
+                                                    block : 'button',
+                                                    mods : { theme : 'islands', size : 'm', view : 'action' },
+                                                    text : 'Подписаться'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            block : 'row',
+                            mods : { mac : true },
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 1},
+                                    content : [
+                                        {
+                                            block : 'link',
+                                            url : 'http://github.com/bem/',
+                                            content : [
+                                                {
+                                                    block : 'fa',
+                                                    mods : { 'in-circle' : true },
+                                                    icon : 'github',
+                                                    size : '3x',
+                                                    color : '#fff'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 1 },
+                                    content : [
+                                        {
+                                            block : 'link',
+                                            url : 'http://www.facebook.com/#!/groups/209713935765634/',
+                                            content : [
+                                                {
+                                                    block : 'fa',
+                                                    mods : { 'in-circle' : true },
+                                                    icon : 'facebook',
+                                                    size : '3x',
+                                                    color : '#fff'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 1 },
+                                    content : [
+                                        {
+                                            block : 'link',
+                                            url : 'https://twitter.com/bem_ru',
+                                            content : [
+                                                {
+                                                    block : 'fa',
+                                                    mods : { 'in-circle' : true },
+                                                    icon : 'twitter',
+                                                    size : '3x',
+                                                    color : '#fff'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 1 },
+                                    content : [
+                                        {
+                                            block : 'link',
+                                            url : 'https://ru.bem.info/forum/',
+                                            content : [
+                                                {
+                                                    block : 'fa',
+                                                    mods : { 'in-circle' : true },
+                                                    icon : 'comments',
+                                                    size : '3x',
+                                                    color : '#fff'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            block : 's-footer',
+            content : [
+                {
+                    block : 'container',
+                    content : [
+                        {
+                            block : 'row',
+                            mods : { mar: true },
+                            content : [
+                                {
+                                    elem : 'col',
+                                    mods : { mw : 6 },
+                                    content : 'БЭМ – Технология создания веб-приложений &copy;'
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         }
     ]

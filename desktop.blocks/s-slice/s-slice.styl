@@ -1,0 +1,32 @@
+.s-slice
+    position: relative
+    height: 300px
+    padding: 70px 0 40px
+    overflow: hidden
+    color: #fff
+    text-align: center
+    background: url('../../img/bg.jpg') center center no-repeat
+    
+    &:before
+        content: ""
+        position: absolute
+        z-index: 1
+        pointer-events: none
+        top: 0
+        right: 0
+        width: 100%
+        background-size: cover
+        border-top: 100px solid white
+        border-right: 3000px solid transparent
+
+    &:after
+        content: ""
+        position: absolute
+        z-index: 1
+        pointer-events: none
+        bottom: 0
+        left: 0
+        width: 100%
+        background-size: cover
+        border-bottom: 200px solid white
+        border-left: 3000px solid transparent

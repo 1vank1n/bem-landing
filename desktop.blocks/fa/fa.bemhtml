@@ -1,0 +1,22 @@
+block('fa')(
+    tag()('i'),
+    cls()(function(){ 
+        var arr = [],
+            icon = this.ctx.icon,
+            size = this.ctx.size;
+
+        arr.push('', icon);
+
+        if (size) {
+            arr.push(size);
+        }
+
+        return arr.join(' fa-'); 
+    }),
+    attrs()(function(){
+        if (this.ctx.color) {
+            var c = 'color:'+this.ctx.color;
+            return {'style': c}
+        }
+    })
+)

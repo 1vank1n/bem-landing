@@ -1,0 +1,51 @@
+block('teamate')(
+    content()(function(){
+        return [
+            {
+                block : 'image',
+                mix : { block : 'teamate', elem : 'avatar' },
+                url : this.ctx.avatar,
+                width : 180,
+                height : 180
+            },
+            {
+                block : 'heading',
+                mods : { 'level' : '4', 'align' : 'center' },
+                content : this.ctx.name
+            },
+            {
+                elem : 'description',
+                tag : 'p',
+                content : this.ctx.content
+            },
+            {
+                elem : 'social',
+                content : [
+                    { 
+                        url : this.ctx.facebook,
+                        icon : 'facebook' 
+                    },
+                    { 
+                        url : this.ctx.twitter,
+                        icon : 'twitter'
+                    },
+                    { 
+                        url : this.ctx.github,
+                        icon : 'github'
+                    }
+                ].map(function(s){
+                    if (s.url) return {
+                        block : 'link',
+                        url : s.url,
+                        content : [
+                            {
+                                block : 'fa',
+                                icon : s.icon
+                            }
+                        ]
+                    }
+                })
+            }
+        ]
+    })
+)

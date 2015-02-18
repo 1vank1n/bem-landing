@@ -1,0 +1,22 @@
+block('counter')(
+    content()(function(){
+
+        return [
+            {
+                block : 'heading',
+                mods : { 'level': '3', 'count': 'yes' },
+                content : 0
+            },
+            {
+                block : 'heading',
+                mods : { 'level': '4' },
+                content : this.ctx.heading
+            },
+            {
+                elem : 'description',
+                tag : 'p',
+                content : this.ctx.description
+            }
+        ]
+    })
+)

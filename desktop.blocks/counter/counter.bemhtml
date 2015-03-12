@@ -1,5 +1,6 @@
 block('counter')(
     content()(function(){
+        var ctx = this.ctx;
 
         return [
             {
@@ -10,13 +11,14 @@ block('counter')(
             {
                 block : 'heading',
                 mods : { 'level': '4' },
-                content : this.ctx.heading
+                content : ctx.heading
             },
             {
-                elem : 'description',
-                tag : 'p',
-                content : this.ctx.description
+                block: 'paragraph',
+                mods: { style: 'grey' },
+                mix: { block: this.block, elem: 'description' },
+                content : ctx.description
             }
-        ]
+        ];
     })
-)
+);

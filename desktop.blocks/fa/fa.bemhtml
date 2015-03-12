@@ -1,22 +1,23 @@
 block('fa')(
+
     tag()('i'),
-    cls()(function(){ 
+
+    cls()(function(){
         var arr = [],
-            icon = this.ctx.icon,
-            size = this.ctx.size;
+            ctx = this.ctx,
+            icon = ctx.icon,
+            size = ctx.size;
 
         arr.push('', icon);
 
-        if (size) {
-            arr.push(size);
-        }
+        if (size) arr.push(size);
 
-        return arr.join(' fa-'); 
+        return arr.join(' fa-');
     }),
+
     attrs()(function(){
-        if (this.ctx.color) {
-            var c = 'color:'+this.ctx.color;
-            return {'style': c}
-        }
+        var color = this.ctx.color;
+
+        if (color) return { style: 'color:' + color };
     })
-)
+);

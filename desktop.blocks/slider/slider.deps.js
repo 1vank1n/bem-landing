@@ -1,6 +1,3 @@
 ({
-    shouldDeps : [
-        { elem : 'circle' },
-        { elem : 'nav' }
-    ]
+    shouldDeps : { elems: ['circle', 'nav'] }
 })

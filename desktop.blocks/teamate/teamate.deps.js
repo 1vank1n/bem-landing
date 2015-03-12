@@ -1,6 +1,6 @@
 ({
     shouldDeps: [
-        { block : 'teamate', elem : 'avatar' },
-        { block : 'teamate', elem : 'social' }
+        { block: 'paragraph' },
+        { elems: ['avatar', 'social-link'] }
     ]
 })

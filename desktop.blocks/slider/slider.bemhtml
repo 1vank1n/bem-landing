@@ -1,4 +1,7 @@
 block('slider')(
+
+    js()(true),
+
     content()(function(){
         var items = this.ctx.content;
 
@@ -7,10 +10,7 @@ block('slider')(
             {
                 elem : 'nav',
                 content : [
-                    {
-                        elem : 'circle',
-                        content : ''
-                    }
+                    { elem : 'circle' }
                 ].map(function(item){
                     var arr = [],
                         i = 0;

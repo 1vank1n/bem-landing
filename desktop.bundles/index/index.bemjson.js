@@ -37,7 +37,7 @@
                                                     content : [
                                                         {
                                                             block : 'image',
-                                                            mix : { block: 's-header', elem : 'logo' },
+                                                            mix : { block : 's-header', elem : 'logo' },
                                                             url : '../../img/logo.svg',
                                                             width : 100
                                                         }
@@ -51,24 +51,24 @@
                                             content : [
                                                 {
                                                     block : 'menubar',
-                                                    mix : { block: 's-header', elem: 'menubar' },
+                                                    mix : { block : 's-header', elem : 'menubar' },
                                                     content : [
                                                         {
                                                             block : 'link',
-                                                            mix : { block: 'menubar', elem: 'link' },
+                                                            mix : { block : 'menubar', elem : 'link' },
                                                             url : '#about',
                                                             content : 'БЭМ'
                                                         },
                                                         {
                                                             block : 'link',
-                                                            mix: { block: 'menubar', elem: 'link' },
-                                                            url: '#team',
+                                                            mix : { block : 'menubar', elem : 'link' },
+                                                            url : '#team',
                                                             content : 'Команда'
                                                         },
                                                         {
                                                             block : 'link',
-                                                            mix: { block: 'menubar', elem: 'link' },
-                                                            url: '#contacts',
+                                                            mix : { block : 'menubar', elem : 'link' },
+                                                            url : '#contacts',
                                                             content : 'Вливайся'
                                                         }
                                                     ]
@@ -93,7 +93,8 @@
                                     content : [
                                         {
                                             block : 'slider',
-                                            js : true,
+                                            js: { timeChange: 1000 },
+                                            mods: { type: 'header', autoplay: true },
                                             content : [
                                                 {
                                                     elem : 'slide',
@@ -187,9 +188,9 @@
                                             content : 'BEM?! БЭМ? Что?! Эт классно! Изучи и заиспользуй!'
                                         },
                                         {
-                                            elem : 'description',
+                                            block : 'paragraph',
+                                            mods : { style : 'grey' },
                                             mix : { block : 's-about', elem : 'description' },
-                                            tag : 'p',
                                             content : 'При использовании БЭМ-подхода все разработчики сайта оперируют единым кодом и общаются в одних и тех же терминах, на одном языке!'
                                         },
                                         {
@@ -231,8 +232,8 @@
                                             content : 'Поддержка'
                                         },
                                         {
-                                            elem : 'description',
-                                            tag : 'p',
+                                            block : 'paragraph',
+                                            mods : { style : 'dark-bg' },
                                             content : 'Технология придумана и разработана в Яндексе. Так что жить ей поживать и добра наживать! Поддержка и развитие обеспечено!'
                                         }
                                     ]
@@ -253,8 +254,8 @@
                                             content : 'Своя библиотека'
                                         },
                                         {
-                                            elem : 'description',
-                                            tag : 'p',
+                                            block : 'paragraph',
+                                            mods : { style : 'dark-bg' },
                                             content : 'Создай свой набор реиспользуемых блоков. И клепай сайты так быстро, как только можешь!'
                                         }
                                     ]
@@ -275,8 +276,8 @@
                                             content : 'OpenSource'
                                         },
                                         {
-                                            elem : 'description',
-                                            tag : 'p',
+                                            block : 'paragraph',
+                                            mods : { style : 'dark-bg' },
                                             content : 'Всё написано людьми для людей. Никаких чёрных ящиков пандоры. Посмотри сам как это работает!'
                                         }
                                     ]
@@ -306,9 +307,9 @@
                                             content : 'Кто мы? Встречайте нашу команду!'
                                         },
                                         {
-                                            elem : 'description',
+                                            block: 'paragraph',
+                                            mods: { style: 'grey' },
                                             mix : { block : 's-team', elem : 'description' },
-                                            tag : 'p',
                                             content : 'Есть вопросы, предложения, идеи – напишите нам.'
                                         }
                                     ]
@@ -409,8 +410,9 @@
                                             content : 'Подпишись на рассылку о БЭМ-событиях'
                                         },
                                         {
-                                            elem : 'description',
-                                            tag : 'p',
+                                            block : 'paragraph',
+                                            mods : { style : 'dark-bg' },
+                                            mix : { block : 's-slice', elem : 'description'  },
                                             content : 'Обещаем не наживаться на продаже твоего емэйла всяческим спам-базам. Слово пионера!'
                                         }
                                     ]
@@ -453,6 +455,7 @@
                                     content : [
                                         {
                                             block : 'link',
+                                            mix: { block: 's-slice', elem: 'social-link' },
                                             url : 'http://github.com/bem/',
                                             content : [
                                                 {
@@ -472,6 +475,7 @@
                                     content : [
                                         {
                                             block : 'link',
+                                            mix: { block: 's-slice', elem: 'social-link' },
                                             url : 'http://www.facebook.com/#!/groups/209713935765634/',
                                             content : [
                                                 {
@@ -491,6 +495,7 @@
                                     content : [
                                         {
                                             block : 'link',
+                                            mix : { block : 's-slice', elem : 'social-link' },
                                             url : 'https://twitter.com/bem_ru',
                                             content : [
                                                 {
@@ -510,6 +515,7 @@
                                     content : [
                                         {
                                             block : 'link',
+                                            mix : { block : 's-slice', elem : 'social-link' },
                                             url : 'https://ru.bem.info/forum/',
                                             content : [
                                                 {

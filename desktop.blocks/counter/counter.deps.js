@@ -1,5 +1,4 @@
 ({
-    mustDeps: [],
     shouldDeps: [
         {
           block: 'heading',
@@ -10,7 +9,9 @@
           mods: { 'level': '4' }
         },
         {
-            elem : 'description'
-        }
+            block: 'paragraph',
+            mods: { style: 'grey' }
+        },
+        { elem : 'description' }
     ]
 })
